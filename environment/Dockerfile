@@ -47,6 +47,8 @@ RUN /opt/conda/bin/conda run -n fsdet pip install --upgrade pip --root-user-acti
 RUN /opt/conda/bin/conda run -n fsdet pip install torch==2.6.0 torchvision==0.21.0 torchaudio==2.6.0 --root-user-action=ignore
 RUN /opt/conda/bin/conda run -n fsdet pip install opencv-python-headless scikit-learn --root-user-action=ignore && \
     /opt/conda/bin/conda run -n fsdet pip install pillow==9.5 numpy==1.23.0 --root-user-action=ignore
+RUN cd /mnt/mmlabworkspace/WorkSpaces/danhnt/danhnt/iFS-RCNN/ && \
+    /opt/conda/bin/conda run -n fsdet pip install -e detectron2
 
 # Copy configuration files
 COPY ./config/.tmux.conf /root/.tmux.conf
